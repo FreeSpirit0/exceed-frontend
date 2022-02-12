@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cards from "../components/Card";
+import {ConvertTimeTo24} from "../components/ConvertTime"
 import { getToilets } from "../services/toilet";
 import getFormatTime from "../utils/time";
 
@@ -10,6 +11,7 @@ const Home = () => {
     new Date().toLocaleTimeString()
   );
 
+  console.log(toilets.every(Boolean))
   useEffect(() => {
     const intervalId = setInterval(
       getToilets().then((data) => {
@@ -34,12 +36,7 @@ const Home = () => {
         Current Time: {ConvertTimeTo24(currentTime)}
       </h2>
       <Cards data={toilets} />
-      <p>
-        รออีก{" "}
-        {getFormatTime(
-          estimate / toilets.filter((toilet) => !toilet.status).length
-        )}
-      </p>
+      {toilets.map(toilet => toilet.status).some(Boolean) ? <p>มีว่าง</p> : <p>รออีก {getFormatTime(estimate / 3)}</p>}
     </div>
   );
 };

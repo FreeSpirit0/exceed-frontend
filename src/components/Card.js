@@ -4,13 +4,27 @@ import getFormatTime from "../utils/time";
 
 const Card = ({ data }) => {
   const [elapsed, setElapsed] = useState(0)
+  const [prevStatus, setPrevStatus] = useState(false)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setElapsed(elapsed + 1)
+      if (!prevStatus && data.status) {
+        setElapsed(0)
+        setPrevStatus(data.status)
+      }
+      if (!prevStatus && !data.status) {
+        setElapsed(elapsed + 1)
+      }
+      if (prevStatus && data.status) {
+        setElapsed(0)
+      }
+      if (prevStatus && !data.status) {
+        setElapsed(elapsed + 1)
+        setPrevStatus(!data.status)
+      }
     }, 1000)
     return () => clearInterval(intervalId)
-  }, [elapsed])
+  }, [elapsed, data.status, prevStatus])
   return (
     <div className="card">
       <header>

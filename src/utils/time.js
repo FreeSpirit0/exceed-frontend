@@ -18,7 +18,7 @@ const getMinute = time => {
 
 const getSecond = time => {
     const secondLeft = time - (SECOND_IN_HOUR * getHour(time)) - (SECOND_IN_MINUTE * getMinute(time))
-    return secondLeft
+    return Math.floor(secondLeft)
 }
 
 const getFormatTime = time => {
