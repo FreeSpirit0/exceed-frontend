@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+  background-color: lightblue;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25rem;
+  width: 20rem;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 25px;
+  margin: 4rem 0rem;
+}
+
+.card * {
+  font-size: xx-large	;
+  background-color: white;
+}
+
+.card h1 {
+  margin-bottom: 3rem;
+}
+
+.card [name=toilet] {
+  font-size: 10rem;
+  margin-bottom: 3rem;
+}
+
+.used {
+  color: red;
+}
+
+.empty {
+  color: greenyellow;
+}
+
+.toilet-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.home p {
+  font-size: xx-large;
+}
