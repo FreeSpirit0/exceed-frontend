@@ -1,33 +1,41 @@
 * {
   padding: 0;
   margin: 0;
-  background-color: lightblue;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 25rem;
+  height: 23rem;
   width: 20rem;
   padding: 2.5rem;
   background-color: white;
   border-radius: 25px;
-  margin: 4rem 0rem;
+  margin: 2rem 0rem;
+  box-shadow: 7px 8px 8px gray;
 }
 
 .card * {
+  font-size: large;
   background-color: white;
 }
 
 .card h1 {
   margin-bottom: 3rem;
-  font-size: xx-large	;
+  font-size: 2rem;
 }
 
-.card [name=toilet] {
-  font-size: 10rem;
-  margin-bottom: 3rem;
+.card [name='toilet'] {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
 }
 
 .card p {
@@ -36,10 +44,14 @@
 
 .used {
   color: red;
+  text-decoration-line: black;
+  border-radius: 10px;
 }
 
 .empty {
   color: greenyellow;
+  text-decoration-line: black;
+  border-radius: 10px;
   animation-name: glowing;
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -60,11 +72,44 @@
 }
 
 .home p {
-  font-size: xx-large;
+  font-size: x-large;
+}
+.toilet-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2 rem;
+  padding: 2rem;
+  padding-bottom: 0;
+  font-family: Monospace;
+  font-size: 3.5rem;
+  text-shadow: 1px 1px 1px rgb(39, 4, 238), 2px 2px 1px rgba(69, 1, 194, 0.897);
+}
+.word {
+  font-size: 10px;
+}
+
+.estimate {
+  padding-top: 3px;
+}
+.status {
+  font-size: 1.5rem;
 }
 
 @keyframes glowing {
   0% {color: greenyellow;}
   50% {color: rgb(119, 185, 19);}
   100% {color: greenyellow;}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
