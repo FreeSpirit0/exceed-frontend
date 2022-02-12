@@ -35,8 +35,8 @@ const Home = () => {
       <h2 className="local-time">
         Current Time: {ConvertTimeTo24(currentTime)}
       </h2>
+      {toilets.map(toilet => toilet.status).every(Boolean) ? "" : <p>รออีก {getFormatTime(estimate / toilets.filter(toilet => !toilet.status).length)}</p>}
       <Cards data={toilets} />
-      {toilets.map(toilet => toilet.status).some(Boolean) ? <p>มีว่าง</p> : <p>รออีก {getFormatTime(estimate / 3)}</p>}
     </div>
   );
 };
