@@ -1,27 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Cards from "../components/Card";
+import { getToilets } from "../services/toilet";
 
 const Home = () => {
-  const sample_toilet = [
-    {
-      id: "1",
-      isEmpty: true,
-      startTime: 0,
-    },
-    {
-      id: "2",
-      isEmpty: false,
-      startTime: 0,
-    },
-		{
-      id: "3",
-      isEmpty: false,
-      startTime: 0,
-    }
-  ];
+  const [toilets, setToilets] = useState([])
+
+  useEffect(() => {
+    getToilets().then((data) => {
+      setToilets(data)
+    })
+  }, [])
+  
   return (
     <div className="home">
-			<Cards data={sample_toilet} />
+			<Cards data={toilets} />
 			<p>รออีก ... นาที</p>
     </div>
   );

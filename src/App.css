@@ -17,17 +17,21 @@
 }
 
 .card * {
-  font-size: xx-large	;
   background-color: white;
 }
 
 .card h1 {
   margin-bottom: 3rem;
+  font-size: xx-large	;
 }
 
 .card [name=toilet] {
   font-size: 10rem;
   margin-bottom: 3rem;
+}
+
+.card p {
+  font-size: medium;
 }
 
 .used {
@@ -36,6 +40,9 @@
 
 .empty {
   color: greenyellow;
+  animation-name: glowing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 .toilet-list {
@@ -54,4 +61,10 @@
 
 .home p {
   font-size: xx-large;
+}
+
+@keyframes glowing {
+  0% {color: greenyellow;}
+  50% {color: rgb(119, 185, 19);}
+  100% {color: greenyellow;}
 }
