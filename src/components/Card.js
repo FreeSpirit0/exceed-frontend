@@ -11,7 +11,6 @@ const Card = ({ data }) => {
     }, 1000)
     return () => clearInterval(intervalId)
   }, [elapsed])
-
   return (
     <div className="card">
       <header>
@@ -33,7 +32,7 @@ const Card = ({ data }) => {
             เริ่มเข้าใช้งานตั้งแต่: {data.time_arr}
           </p>
           <p className="time-out">เวลาที่ใช้: {getFormatTime(elapsed)} </p>
-          <p className="time-estimate">ใช้เวลาเสร็จสิ้นประมาณ: xxx</p>
+          <p className="time-estimate">ใช้เวลาเสร็จสิ้นประมาณ: {getFormatTime(data.time_est)}</p>
         </div>
       )}
     </div>
@@ -41,7 +40,6 @@ const Card = ({ data }) => {
 };
 
 const Cards = ({ data }) => {
-  console.log(data)
   return (
     <div className="toilet-list">
       {data.map((toilet) => (
