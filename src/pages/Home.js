@@ -6,6 +6,9 @@ import getFormatTime from "../utils/time";
 const Home = () => {
   const [toilets, setToilets] = useState([]);
   const [estimate, setEstimate] = useState(0);
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString()
+  );
 
   useEffect(() => {
     const intervalId = setInterval(
@@ -16,6 +19,7 @@ const Home = () => {
             .map((toilet) => (toilet.status ? 0 : toilet.time_est))
             .reduce((partialSum, a) => partialSum + a, 0)
         );
+        setCurrentTime(new Date().toLocaleTimeString());
       }),
       2000
     );
@@ -26,8 +30,16 @@ const Home = () => {
   return (
     <div className="home">
       <h1 className="toilet-status">Toilet Status</h1>
+      <h2 className="local-time">
+        Current Time: {ConvertTimeTo24(currentTime)}
+      </h2>
       <Cards data={toilets} />
-      <p>รออีก {getFormatTime(estimate / toilets.filter(toilet => !toilet.status).length)}</p>
+      <p>
+        รออีก{" "}
+        {getFormatTime(
+          estimate / toilets.filter((toilet) => !toilet.status).length
+        )}
+      </p>
     </div>
   );
 };
