@@ -30,7 +30,7 @@ const Card = ({ data }) => {
       ) : (
         <div className="word">
           <p className="time-in">
-            เริ่มเข้าใช้งานตั้งแต่: {data.time_arr} วินาที
+            เริ่มเข้าใช้งานตั้งแต่: {data.time_arr}
           </p>
           <p className="time-out">เวลาที่ใช้: {getFormatTime(elapsed)} </p>
           <p className="time-estimate">ใช้เวลาเสร็จสิ้นประมาณ: xxx</p>
